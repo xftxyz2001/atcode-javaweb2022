@@ -23,9 +23,11 @@ public class Demo01Batch {
             psmt.addBatch();
 
             if(i%1000==0){  //如果任务较多，可以分批次执行，每次执行完，清空任务队列
+                // 此处似乎count没有获取
                 psmt.executeBatch();
                 psmt.clearBatch();
             }
+            //? 
         }
         //批处理操作三
         int[] count = psmt.executeBatch();
